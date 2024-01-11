@@ -5,6 +5,7 @@ class Font(Enum):
     DEFAULT = "Poppins"
     TITLE = "Poppins"
     LOGO = "Comfortaa"
+    NAVBAR="Comfortaa"
 
 
 class FontWeight(Enum):

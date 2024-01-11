@@ -12,6 +12,7 @@ MAX_WIDTH = "600px"
 STYLESHEETS = [
     "https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap",
     "https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap",
+    "https://fonts.googleapis.com/css2?family=PT+Serif&display=swap",
 ]
 
 
@@ -21,6 +22,7 @@ class Size(Enum):
     SMALL = "0.5em"
     MEDIUM = "0.8em"
     DEFAULT = "1em"
+    NAVBAR = "1.2em"
     LARGE = "1.5em"
     BIG = "4em"
     VERY_BIG = "7em"
@@ -32,7 +34,7 @@ class Size(Enum):
 BASE_STYLE = {
     "font_family": Font.DEFAULT.value,
     "font_weight": FontWeight.LIGHT.value,
-    # "background_color": "Color.BACKGROUND.value",
+    "background_color": Color.BACKGROUND.value,
     rx.Heading: {
         "color": TextColor.HEADER.value,
         "font_family": Font.TITLE.value,
@@ -51,9 +53,15 @@ BASE_STYLE = {
             "background_color": Color.SECONDARY.value,
         },
     },
-    rx.Link: {
+    rx.Link
+    and rx.MenuButton: {
         "text_decoration": "none",
-        "_hover": {},
+        "font_size": Size.NAVBAR.value,
+        "font_family": Font.NAVBAR.value,
+        "font_weight": FontWeight.MEDIUM.value,
+        "_hover": {
+            "color": Color.SECONDARY.value,
+        },
     },
 }
 

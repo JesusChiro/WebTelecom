@@ -1,43 +1,37 @@
 import reflex as rx
-import WebTelecom.styles.styles as styles
+from WebTelecom.styles.fonts import Font
 from WebTelecom.styles.styles import Size
-from WebTelecom.styles.colors import Color
-from WebTelecom.components.link_button_navbar import link_button_navbar
+from WebTelecom.styles.colors import Color, TextColor
 
 
-def navbar() -> rx.Component:
-    return rx.hstack(
-        rx.box(
+def navbar():
+    return rx.center(
+        rx.hstack(
             rx.image(
                 src="logo.png",
                 width=Size.VERY_BIG.value,
                 height=Size.BIG.value,
             ),
-            style=styles.navbar_title_style,
-            width="300px",
-            bg="red",
-        ),
-        rx.hstack(
-            link_button_navbar(
-                "Nosotros",
-            ),
             rx.spacer(),
-            link_button_navbar(
-                "Nuestros Servicios",
+            rx.hstack(
+                rx.menu(
+                    rx.menu_button("Nosotros"),
+                    rx.spacer(),
+                    rx.menu_button("Proyectos"),
+                    rx.spacer(),
+                    rx.menu_button("Principales Clientes"),
+                    rx.spacer(),
+                    rx.menu_button("Contactenos"),
+                    color=TextColor.NAVBAR.value,
+                    margin_x=Size.VERY_BIG.value,
+                ),
             ),
-            link_button_navbar(
-                "Nosotros",
-            ),
-            rx.spacer(),
-            link_button_navbar(
-                "Nuestros Servicios",
-            ),
-            bg="red",
         ),
-        position="sticky",
-        bg=Color.CONTENT.value,
         padding_x=Size.BIG.value,
         padding_y=Size.DEFAULT.value,
+        background_color=Color.CONTENT.value,
+        position="fixed",
+        top="0px",
         z_index="999",
-        top="0",
+        width="100%",
     )
